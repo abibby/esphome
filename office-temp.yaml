@@ -1,3 +1,4 @@
+# 192.168.2.68
 esphome:
   name: office-temp
 
@@ -23,19 +24,19 @@ api:
 logger:
   level: DEBUG
 
-# output:
-#   - platform: gpio
-#     pin:
-#       number: 32 # 25 for Pico (non-W)
-#       mode: output
-#     id: LED
+output:
+  - platform: gpio
+    pin:
+      number: 32 # 25 for Pico (non-W)
+      mode: output
+    id: LED
 
-# interval:
-#   - interval: 2s
-#     then:
-#       - output.turn_on: LED
-#       - delay: 1s
-#       - output.turn_off: LED
+interval:
+  - interval: 2s
+    then:
+      - output.turn_on: LED
+      - delay: 1s
+      - output.turn_off: LED
 
 i2c:
   sda: 20

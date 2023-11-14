@@ -23,19 +23,19 @@ api:
 logger:
   level: DEBUG
 
-output:
-  - platform: gpio
-    pin:
-      number: 32 # 25 for Pico (non-W)
-      mode: output
-    id: LED
+# output:
+#   - platform: gpio
+#     pin:
+#       number: 32 # 25 for Pico (non-W)
+#       mode: output
+#     id: LED
 
-interval:
-  - interval: 5s
-    then:
-      - output.turn_on: LED
-      - delay: 1s
-      - output.turn_off: LED
+# interval:
+#   - interval: 5s
+#     then:
+#       - output.turn_on: LED
+#       - delay: 1s
+#       - output.turn_off: LED
 
 i2c:
   sda: 20
@@ -45,6 +45,8 @@ sensor:
   - platform: am2320
     temperature:
       name: "Living Room Temperature"
+      filters:
+        - offset: -2.0
     humidity:
       name: "Living Room Humidity"
     update_interval: 60s
